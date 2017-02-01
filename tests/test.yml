@@ -1,5 +1,16 @@
 ---
 - hosts: localhost
   remote_user: root
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Install gtar.
+      package: name=tar state=installed
+      when: ansible_distribution == 'Fedora'
+
   roles:
-    - ansible-role-phpstorm
+    - geerlingguy.java
+    - role_under_test
