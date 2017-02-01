@@ -1,0 +1,8 @@
+---
+phpstorm_version: '2016.3.2'
+phpstorm_install_path: '/opt/jetbrains/phpstorm-{{ phpstorm_version }}'
+
+# Donwload URLs
+phpstorm_package: 'PhpStorm-{{ phpstorm_version }}.tar.gz'
+phpstorm_download_url: 'https://download.jetbrains.com/webide/{{ phpstorm_package }}'
+phpstorm_checksum_url: '{{ phpstorm_download_url }}.sha256'
