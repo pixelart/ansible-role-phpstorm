@@ -49,3 +49,10 @@ script:
 
   # Ensure PhpStorm is installed and working (still won't startup because there is no graphics environment).
   - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm /opt/jetbrains/phpstorm-2016.3.2/bin/phpstorm.sh || true'
+
+notifications:
+  slack:
+    rooms:
+      secure: G3PRfP5Iohec60i0bfx8NaTdRVIKjo7BjG24zHXCIItvfPRVQAOqWhiH7tTWYcOHc8JoMebT40RG3c8ErsCr++lR1woFsFWgxpNhMVIO4z87EjHJNuPyzazfc1H0mjOo62EUsGEQlEbnZXFWn5hwgIbKNk3E4GiYRssH4QbTIcgG/+O0r847pLvxsPIPhO7C9++aE041Efa9w+qhJoYLExBV7+NcabPUgAT5Tihi2fZSzfHGIlnImxnXTDghgLUxM2q2lzoyVgFykyDpDEGTNnlBT0QgChx1+pHs4/346v+Z0GVIPqUpeTMYkUMN2VpnBGstJKgVjVhxqtbiy1CzblC9lmo5Lgh1vYIj2oe82GgrGPF+k2nmOj2LZZmeWnJF9FJE+zQ+cWFAKDfsMsmXlmJqbgIQL5iSQp6oUkCLKATSJOsRlPt9oQwHRj5tIYseuNRIHjbcpafmvHrZGtotjxEYZ+MU6kyr3Z/cFsEVSLnG9JYZzjcPUApFNDPMRdiZGxI6YhWM3XegCEAK/jPMR6pNR8+XrqgY6u+3LWaBJMjbYytePhgB0yAeK2K8OcLr1illuCPKlfPWe0SMCr2yTT37I6YFV3hdNcbeGJOXsv2+76HWKswdiJVn0byqhTTi7aSHJnVh3ziYw0kmW2BCSCZV7cqlB6s6ZY4ipi4LdZw=
+    on_success: change
+    on_failure: always
