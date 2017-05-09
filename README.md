@@ -12,7 +12,7 @@ Installs the [Jetbrains PhpStorm IDE](https://www.jetbrains.com/phpstorm/), on a
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    phpstorm_version: '2016.3.2'
+    phpstorm_version: '2017.1.3'
 
 The version of PhpStorm which should be installed.
 
