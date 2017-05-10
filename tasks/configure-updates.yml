@@ -1,0 +1,7 @@
+---
+- name: Deactivate PhpStorm update checks
+  lineinfile:
+    path: '{{ item }}'
+    regexp: '^-Dide\.no\.platform\.update'
+    line: '-Dide.no.platform.update=true'
+  with_fileglob: '{{ phpstorm_install_path }}/bin/*.vmoptions'

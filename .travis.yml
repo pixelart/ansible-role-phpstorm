@@ -35,6 +35,9 @@ script:
   # Test role.
   - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml'
 
+  # Check for vmoptions set
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm bash -c "grep -e \"-Dide.no.platform.update=true\" /opt/jetbrains/phpstorm-*/bin/*.vmoptions"'
+
   # Test role idempotence.
   - idempotence=$(mktemp)
   - docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/role_under_test/tests/test.yml | tee -a ${idempotence}
