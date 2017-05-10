@@ -1,0 +1,6 @@
+---
+- name: Create PhpStorm application launcher
+  template:
+    src: jetbrains-phpstorm.desktop.j2
+    dest: /usr/share/applications/jetbrains-phpstorm.desktop
+    mode: 0644

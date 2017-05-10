@@ -1,0 +1,13 @@
+---
+# See https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
+- name: Set inotify watches limit to 512K
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: 524288
+    sysctl_file: /etc/sysctl.d/20-idea.conf
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- include: configure-launchers.yml
+  static: no
