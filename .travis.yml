@@ -48,7 +48,8 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Ensure PhpStorm is installed and working (still won't startup because there is no graphics environment).
-  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm /opt/jetbrains/phpstorm-2016.3.2/bin/phpstorm.sh || true'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm bash -c "/opt/jetbrains/phpstorm-*/bin/phpstorm.sh"; [ $? == 1 ]'
+  - 'docker exec --tty "$(cat ${container_id})" env TERM=xterm pstorm; [ $? == 1 ]'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

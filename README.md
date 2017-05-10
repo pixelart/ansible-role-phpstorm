@@ -30,7 +30,7 @@ None.
       roles:
         - pixelart.phpstorm
 
-After the playbook runs, PhpStorm will be installed, and an application launcher will be accessible via normal user accounts.
+After the playbook runs, PhpStorm will be installed, and an application and command line launcher will be accessible via normal user accounts.
 
 ## Code of Conduct
 

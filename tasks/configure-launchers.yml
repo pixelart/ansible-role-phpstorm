@@ -4,3 +4,9 @@
     src: jetbrains-phpstorm.desktop.j2
     dest: /usr/share/applications/jetbrains-phpstorm.desktop
     mode: 0644
+
+- name: Create PhpStorm command line launcher
+  template:
+    src: pstorm.j2
+    dest: /usr/local/bin/pstorm
+    mode: 0755
