@@ -1,0 +1,47 @@
+---
+- name: Check for existing PhpStorm install
+  stat: path="{{ phpstorm_install_path }}"
+  register: _phpstorm_installed
+
+- name: Register phpstorm_installed variable
+  set_fact:
+    phpstorm_installed: "{{ _phpstorm_installed.stat.exists }}"
+
+- name: Download package checksum
+  uri:
+    url: "{{ phpstorm_checksum_url }}"
+    return_content: true
+  changed_when: false
+  register: _phpstorm_package_checksum
+  when: not phpstorm_installed
+
+- name: Extract package checksum
+  set_fact:
+    phpstorm_package_checksum: "{{ (_phpstorm_package_checksum.content.split(' '))[0] }}"
+  when: not phpstorm_installed
+
+- name: Download PhpStorm package
+  get_url:
+    url: "{{ phpstorm_download_url }}"
+    dest: /tmp/
+    checksum: "sha256:{{ phpstorm_package_checksum }}"
+  when: not phpstorm_installed
+
+- name: Create PhpStorm install path
+  file:
+    path: "{{ phpstorm_install_path }}"
+    state: directory
+  when: not phpstorm_installed
+
+- name: Extract PhpStorm package
+  unarchive:
+    src: "/tmp/{{ phpstorm_package }}"
+    dest: "{{ phpstorm_install_path }}"
+    remote_src: yes
+    extra_opts: ['--strip-components=1']
+  when: not phpstorm_installed
+
+- name: Delete package file
+  file:
+    dest: "/tmp/{{ phpstorm_package }}"
+    state: absent
