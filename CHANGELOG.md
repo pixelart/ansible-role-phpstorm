@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Create PhpStorm command line launcher `pstorm` (configurable)
+- Add configuration to define releases to cleanup
 
 ### Changed
 - Finally deactivate the automated update checks
+
+### Upgrade needed
+
+If you have overwritten the `phpstorm_install_path` variable in the past, please split it up to use `phpstorm_install_basepath` and `phpstorm_install_prefix` instead.
+
+Your overwrite of `phpstorm_install_path` will continue to work, but you won't be able to cleanup old releases, because your path won't match with the new defaults for cleanup. 
 
 ## [1.0.2] - 2017-05-09
 ### Changed
