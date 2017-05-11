@@ -8,5 +8,6 @@
 - name: Create PhpStorm command line launcher
   template:
     src: pstorm.j2
-    dest: /usr/local/bin/pstorm
+    dest: /usr/local/bin/{{ phpstorm_commandline_launcher }}
     mode: 0755
+  when: phpstorm_commandline_launcher != false

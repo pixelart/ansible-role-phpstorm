@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Create PhpStorm command line launcher `pstorm`
+- Create PhpStorm command line launcher `pstorm` (configurable)
 
 ### Changed
 - Finally deactivate the automated update checks

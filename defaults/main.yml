@@ -1,6 +1,7 @@
 ---
 phpstorm_version: '2017.1.3'
 phpstorm_install_path: '/opt/jetbrains/phpstorm-{{ phpstorm_version }}'
+phpstorm_commandline_launcher: 'pstorm'
 
 # Donwload URLs
 phpstorm_package: 'PhpStorm-{{ phpstorm_version }}.tar.gz'
