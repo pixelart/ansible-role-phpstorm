@@ -20,6 +20,10 @@ The version of PhpStorm which should be installed.
 
 The path where PhpStorm will be installed and available to your system.
 
+    phpstorm_commandline_launcher: 'pstorm'
+    
+The executable name of the command-line launcher. Set to `False` if you don't want to install one.
+
 ## Dependencies
 
 None.
@@ -30,7 +34,7 @@ None.
       roles:
         - pixelart.phpstorm
 
-After the playbook runs, PhpStorm will be installed, and an application launcher will be accessible via normal user accounts.
+After the playbook runs, PhpStorm will be installed, and an application and a command-line launcher will be accessible via normal user accounts.
 
 ## Code of Conduct
 
