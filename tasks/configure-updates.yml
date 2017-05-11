@@ -1,7 +1,13 @@
 ---
-- name: Deactivate PhpStorm update checks
+- name: Find vmoptions files
+  find:
+    paths: '{{ phpstorm_install_path }}/bin'
+    patterns: '*.vmoptions'
+  register: phpstorm_vmoptions_files
+
+- name: Disable PhpStorm update checks
   lineinfile:
-    path: '{{ item }}'
+    path: '{{ item.path }}'
     regexp: '^-Dide\.no\.platform\.update'
     line: '-Dide.no.platform.update=true'
-  with_fileglob: '{{ phpstorm_install_path }}/bin/*.vmoptions'
+  with_items: '{{ phpstorm_vmoptions_files.files }}'
