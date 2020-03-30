@@ -1,5 +1,5 @@
 ---
-phpstorm_version: '2017.1.3'
+phpstorm_version: '2019.3.4'
 phpstorm_install_basepath: '/opt/jetbrains'
 phpstorm_install_prefix: 'phpstorm'
 phpstorm_install_path: '{{ phpstorm_install_basepath }}/{{ phpstorm_install_prefix }}-{{ phpstorm_version }}'
